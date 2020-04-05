@@ -95,3 +95,20 @@ table {
 thead {
     font-weight: 500;
 }
+
+.back-link {
+    border: 1px solid $blue;
+    border-radius: 5%;
+    color: $blue;
+    transition: 1s ease;
+}
+
+.back-link:hover {
+    color: $white;
+    background-color: $blue;
+}
+
+.back-link, .back-link:hover {
+    text-decoration: none;
+    padding: $size-1 $size-1 $size-1 $size-1;
+}

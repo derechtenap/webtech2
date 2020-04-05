@@ -113,4 +113,22 @@ table {
 thead {
   font-weight: 500;
 }
+
+.back-link {
+  border: 1px solid #3867d6;
+  border-radius: 5%;
+  color: #3867d6;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+}
+
+.back-link:hover {
+  color: #fafafa;
+  background-color: #3867d6;
+}
+
+.back-link, .back-link:hover {
+  text-decoration: none;
+  padding: 8px 8px 8px 8px;
+}
 /*# sourceMappingURL=style.css.map */

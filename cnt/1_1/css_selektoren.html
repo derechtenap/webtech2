@@ -8,7 +8,7 @@
 </head>
 <body>
     <main class="container p-6">
-        <h1>1.1 CSS-Selektoren</h1>
+        <h1><a href="../../inhalt.html" title="Zurück" class="back-link" style="margin-right: 8px;">&#60;</a>1.1 CSS-Selektoren</h1>
         <p>
            (a) Verändern Sie mit jQuery die CSS-Einstellungen, so dass die Hintergrundfarbe aller <code class="html-tag">tr</code>-Elemente hellblau erscheinen.
         </p>
@@ -19,11 +19,12 @@
             Hinweis: <a href="https://www.w3schools.com/jquery/jquery_selectors.asp" target="blank">https://www.w3schools.com/jquery/jquery_selectors.asp</a>
         </p>
         <h2 class="p-4" style="padding-left: 0;">Lösung (a)</h2>
+        <p>Um alle tr-Tags der Tabelle mit jQuery zu färben reicht eine einzige Zeile: <code class="text-code text-danger">$('#tabelleA tr').css('background-color', 'lightblue')</code>. Hierbei hat die Tabelle die ID "tabelleA" bekommen (Damit nicht beide Tabellen auf dieser Seite diesen Effekt erhalten).</p>
         <table id="tabelleA">
             <thead>
                 <tr>
-                    <td>Firma</td>
-                    <td>Land</td>
+                    <th>Firma</th>
+                    <th>Land</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,11 +51,12 @@
             </tbody>
         </table>
         <h2 class="p-4" style="padding-left: 0;">Lösung (b)</h2>
+        <p>Es ist nur eine kleine Änderung notwendig damit nur <i>gerade</i> Zeilen gefärbt werden: <code class="text-code text-danger">$('#tabelleB tr:even').css('background-color', 'lightblue')</code>.</p>
         <table id="tabelleB">
             <thead>
                 <tr>
-                    <td>Firma</td>
-                    <td>Land</td>
+                    <th>Firma</th>
+                    <th>Land</th>
                 </tr>
             </thead>
             <tbody>
@@ -88,7 +90,7 @@
         </p>
     </footer>
     <script src="../../static/js/jquery.3.3.1.min.js" defer></script>
-    <script src="../../static/js/1_1/css_selektoren_a.js" defer></script>
-    <script src="../../static/js/1_1/css_selektoren_b.js" defer></script>
+    <script src="css_selektoren_a.js" defer></script>
+    <script src="css_selektoren_b.js" defer></script>
 </body>
 </html>
