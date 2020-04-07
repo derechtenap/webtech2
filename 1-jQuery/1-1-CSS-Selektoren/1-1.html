@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.1 Aufgabe: CSS-Selektoren</title>
+    <link rel="stylesheet" href="../../global/style.css">
+    <style>
+        /*  
+            CSS speziell für diese Aufgabe
+        */
+    </style>
+</head>
+
+<body>
+    <div class="container center">
+        <!-- Übersicht -->
+        <h1><small>1. jQuery</small>1.1 Aufgabe: CSS-Selektoren</h1>
+        <h2>Aufgabenstellung</h2>
+        <ol type="a">
+            <li>
+                Verändern Sie mit jQuery die CSS-Einstellungen, so dass die Hintergrundfarbe aller
+                <code>tr</code>-Elemente hellblau erscheinen.
+            </li>
+            <li>
+                Modifizieren Sie das Dokument, so dass nur noch jede zweite Zeile mit der Hintergrundfarbe erscheint.
+            </li>
+        </ol>
+        <figure class="img">
+            <img src="../../global/jpg/1-1.jpg" alt="Tabelle mit verschieden gefärbten Spalten.">
+            <figcaption>Beispielbild zum Aufgabenteil b). Die Tabellenspalten sind unterschiedlich gefärbt.</figcaption>
+        </figure>
+        <hr>
+        <!-- Lösung -->
+        <h3>Lösung</h3>
+        <h4>Aufgabenteil a)</h4>
+        <table data-info="tab1">
+            <thead>
+                <tr>
+                    <th lang="en">Company</th>
+                    <th lang="en">Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td lang="en">Germany</td>
+                </tr>
+                <tr>
+                    <td lang="sv">Berglunds snabbköp</td>
+                    <td lang="en">Sweden</td>
+                </tr>
+                <tr>
+                    <td lang="es">Centro comercial Moctezuma</td>
+                    <td lang="en">Mexico</td>
+                </tr>
+                <tr>
+                    <td>Ernst Handel</td>
+                    <td lang="en">Austria</td>
+                </tr>
+                <tr>
+                    <td lang="en">Island Trading</td>
+                    <td lang="en">UK</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Aufgabenteil b)</h4>
+        <table data-info="tab2">
+            <thead>
+                <tr>
+                    <th lang="en">Company</th>
+                    <th lang="en">Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td lang="en">Germany</td>
+                </tr>
+                <tr>
+                    <td lang="sv">Berglunds snabbköp</td>
+                    <td lang="en">Sweden</td>
+                </tr>
+                <tr>
+                    <td lang="es">Centro comercial Moctezuma</td>
+                    <td lang="en">Mexico</td>
+                </tr>
+                <tr>
+                    <td>Ernst Handel</td>
+                    <td lang="en">Austria</td>
+                </tr>
+                <tr>
+                    <td lang="en">Island Trading</td>
+                    <td lang="en">UK</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" defer></script>
+    <script src="1-1-script.js" defer></script>
+</body>
+
+</html>

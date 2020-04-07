@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.2 Aufgabe: Animationseffekte</title>
+    <link rel="stylesheet" href="../../global/style.css">
+    <style>
+        /*  
+            CSS speziell für diese Aufgabe
+        */
+    </style>
+</head>
+
+<body>
+    <div class="container center">
+        <!-- Übersicht -->
+        <h1><small>1. jQuery</small>1.2 Aufgabe: Animationseffekte</h1>
+        <h2>Aufgabenstellung</h2>
+        <p>Programmieren Sie folgende Animationseffekte mit jQuery:</p>
+        <figure class="img">
+            <img src="../../global/jpg/1-2.jpg" alt="Vorschau der jQuery-Effekte: Fade, Slide und Explode.">
+            <figcaption>Diese Effekte sollen mit jQuery realisiert werden: Fade, Slide und Explode.</figcaption>
+        </figure>
+        <hr>
+        <!-- Lösung -->
+        <h3>Lösung</h3>
+        <img data-info="b1" src="../../global/png/1-2-HTML5-Logo.png" alt="Logo von HTML5">
+        <img data-info="b2" src="../../global/png/1-2-HTML5-Logo.png" alt="Logo von HTML5">
+        <img data-info="b3" id="toggle" src="../../global/png/1-2-HTML5-Logo.png" alt="Logo von HTML5">
+        <p>
+            Auf das dritte HTML5-Logo klicken, um den Explode-Effekt zu aktivieren. Scheinbar muss jQuery UI geladen
+            werden, um diesen Effekt zu nutzen.
+        </p>
+    </div>
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js" defer></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" defer></script>
+    <script src="1-2-script.js" defer></script>
+</body>
+
+</html>
