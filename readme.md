@@ -10,3 +10,5 @@ Die `Ordner 1-8` enthalten die Lösungen und Aufgabenstellungen für die jeweili
 6. PageRank
 7. Netzwerkstruktur
 8. Künstliche Intelligenz
+## Fortschritt
+- Die Aufgaben von `jQuery` sind bis auf `Aufgabe 1.3b` abgeschlossen
