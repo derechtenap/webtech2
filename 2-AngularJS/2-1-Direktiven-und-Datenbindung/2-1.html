@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-1 Aufgabe: Direktiven und Datenbindung</title>
+    <link rel="stylesheet" href="../../global/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <style>
+        /*  
+            CSS speziell für diese Aufgabe
+        */
+    </style>
+</head>
+
+<body>
+    <div class="container center">
+        <!-- Übersicht -->
+        <h1><small>2. AngularJS</small>2.1 Aufgabe: Direktiven und Datenbindung</h1>
+        <h2>Aufgabenstellung</h2>
+        <ol type="a">
+            <li>
+                Schreiben Sie eine Anwendung, die zwei Texfelder "Menge" und "Preis" anzeigt und schon bei der Eingabe
+                den Gesamtbetrag Menge mal Preis ausgibt
+            </li>
+            <li>
+                Schreiben Sie eine Webseite, in der mit einem Slider ein dargestelltes Bild ausgeblendet werden kann.
+                Benutzen Sie dazu das CSS-Attribut <code>opacity</code> für Ihr Bild.
+            </li>
+            <li>
+                Schreiben Sie eine Webanwendung, die einen Text und eine Checkbox anzeigt, wobei der Text sich ändert,
+                wenn die Checkbox selktiert ist:
+                <figure class="img">
+                    <img src="../../global/jpg/2-1.jpg" alt="Bild mit zwei Checkboxen.">
+                    <figcaption>Beispielbild zum Aufgabenteil c).</figcaption>
+                </figure>
+                Verwenden Sie die Direktiven <code>ng-hide</code> und <code>ng-show</code> und die API
+                <code>https://docs.angularjs.org/api/ng/directive/</code>. (Sollte dies nicht helfen, verwenden Sie die
+                Hinweise auf <code>http://www.w3schools.com/angular/tryit.asp?filename=try_ng_ng-hide</code>).
+            </li>
+        </ol>
+
+        <hr>
+        <!-- Lösung -->
+        <h3>Lösung</h3>
+        <h4>Aufgabenteil a)</h4>
+        <!-- data- Prefix damit keine W3C Validator Warnings kommen -->
+        <div data-ng-app="" data-ng-init="o=1;">
+            <input type="number" data-ng-model="e_menge" placeholder="Menge">
+            <input type="number" data-ng-model="e_preis" placeholder="Preis">
+            <p>{{ e_menge * e_preis }} €</p>
+
+            <h4>Aufgabenteil b)</h4>
+            <fieldset style="border: 0; padding-bottom: 3em;">
+                <label for="opacity">Durchsichtigkeit: {{ o }}</label>
+                <input id="opacity" type="range" min="0" max="1" step="0.01" data-ng-model="o">
+            </fieldset>
+
+            <img style="opacity: {{ o }};" src="../../global/png/1-2-HTML5-Logo.png" alt="Logo von HTML5.">
+
+            <h4>Aufgabenteil c)</h4>
+            <input type="checkbox" id="c" data-ng-model="verstecken">
+            <label for="c" data-ng-hide="verstecken">Text verstecken</label>
+            <label for="c" data-ng-show="verstecken">Text anzeigen</label>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
