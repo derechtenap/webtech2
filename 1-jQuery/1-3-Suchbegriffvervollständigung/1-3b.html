@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.min.css">
+    <title>1.3b* Aufgabe: Suchbegriffvervollständigung</title>
+</head>
+
+<body>
+    <p>Achtung: Aufgabe funktioniert mit Google Chrome nicht. Da dieser standardmäßig das laden von lokalen Dateien verhindert. Firefox erlaubt dies.</p>
+    <label for="input">Sprachen:
+        <input type="text" name="input" id="input" autofocus placeholder="Sprachen">
+    </label>
+    <script>
+        $(document).ready(function () {
+            $("input").autocomplete({
+                source: "auto.php",
+                minLength: 1
+            });
+        });
+    </script>
+</body>
+
+</html>
