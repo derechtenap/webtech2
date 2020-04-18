@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.1 Aufgabe: WebSocket-Client</title>
+    <link rel="stylesheet" href="../../global/style.css">
+    <style>
+        /*  
+            CSS speziell für diese Aufgabe
+        */
+
+        textarea,
+        input {
+            width: 100%;
+        }
+
+        fieldset {
+            border: 0;
+        }
+
+        fieldset>div,
+        table {
+            margin-top: 1rem;
+        }
+
+        var {
+            font-style: normal;
+        }
+
+        td,
+        th {
+            width: 50%;
+            text-align: left;
+        }
+    </style>
+    <script>
+        var onload = function () {
+            var terminal = document.getElementById('terminal');
+            var verbindung = new WebSocket('ws://194.94.2.20:8087/chat');
+            var statusElement = document.getElementById('status');
+
+            // Event handlers
+            verbindung.onopen = function () {
+                statusElement.innerHTML = verbindung.readyState;
+            };
+
+            verbindung.onclose = function () {
+                statusElement.innerHTML = verbindung.readyState;
+            };
+
+            verbindung.onmessage = function (message) {
+                statusElement.innerHTML = verbindung.readyState;
+                if (message.data) {
+                    terminal.innerHTML += 'SERVER: ' + message.data + '\n';
+                    if (message.data === 'bye') {
+                        verbindung.close();
+                    }
+                }
+                terminal.scrollTop = terminal.scrollHeight; // Fokus auf letzte Zeile
+                statusElement.innerHTML = verbindung.readyState;
+            };
+
+            verbindung.onerror = function (error) {
+                console.log(error);
+            };
+
+            document.getElementById('input').onkeydown = function (event) {
+                if (event.keyCode === 13) { // 13 = Enter
+                    var msg = document.getElementById('input').value;
+                    if (msg) { // Keine leere Nachricht
+                        verbindung.send(msg);
+                        document.getElementById('input').value = '';
+                        terminal.innerHTML += 'DU: ' + msg + '\n';
+                        terminal.scrollTop = terminal.scrollHeight;
+                    }
+                }
+                statusElement.innerHTML = verbindung.readyState;
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <div class="container center">
+        <!-- Übersicht -->
+        <h1><small>3. WebSockets</small>3.1 Aufgabe: WebSocket-Client</h1>
+        <h2>Aufgabenstellung</h2>
+        <ol type="a">
+            <li>
+                Programmieren Sie einen WebSocket-Client für den Chatserver mit der WebSocketverbindung
+                <code>ws://194.94.2.20:8087/chat</code>. Das "Protokoll" des Chatdienstes sieht dabei vor, dass die
+                erste Eingabe ein frei wählbarer Username ist, mit der sich ein Teilnehmer anmeldet, und dass er sich
+                mit der Eingabe "bye" oder durch Klicken eines geeigneten Buttons wieder abmeldet.
+            </li>
+        </ol>
+
+        <hr>
+        <!-- Lösung -->
+        <h3>Lösung</h3>
+
+        <fieldset>
+            <textarea id="terminal" cols="80" rows="10" readonly placeholder="Chat"></textarea>
+            <input type="text" id="input" size="80" placeholder="Nachricht eingeben; Mit 'bye' Verbindung beenden.">
+            <div>
+                Verbindung: <var id="status">-1</var>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Zustand</th>
+                            <th>Beschreibung</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>-1</td>
+                            <td>Skript nicht geladen</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>Connecting</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Open</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Closing</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Closed</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </fieldset>
+
+    </div>
+</body>
+
+</html>

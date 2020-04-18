@@ -4,7 +4,7 @@ In diesem Repository befinden sich alle Aufgaben für das Modul: Webtechnologie 
 Die `Ordner 1-8` enthalten die Lösungen und Aufgabenstellungen für die jeweiligen Arbeitsblätter.
 1. jQuery (CSS-Selektoren, Animationseffekte, Suchbegriffvervollständigung und AJAX mit jQuery)
 2. AngularJS (Direktiven und Datenbindung und Single-Page App (SPA) mit Datenbankanbindung)
-3. WebSockets
+3. WebSockets (Websocket-Client, Verbindungsprotokoll und Datenübermittlung bei WhatsApp-Web)
 4. REST und WebServices
 5. _Arbeitsblatt fehlt aktuell_
 6. PageRank
@@ -12,4 +12,4 @@ Die `Ordner 1-8` enthalten die Lösungen und Aufgabenstellungen für die jeweili
 8. Künstliche Intelligenz
 ## Fortschritt
 - Die Aufgaben von `jQuery` sind abgeschlossen.
-- Die `Aufgabe 2.1` von `AngularJS` ist fertig.
+- Die Aufgabe 2.1 von `AngularJS` ist fertig.

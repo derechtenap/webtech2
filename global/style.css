@@ -27,6 +27,11 @@ code {
     color: #eb3b5a;
 }
 
+ol {
+    padding-inline-start: 0;
+    margin-inline-start: 1em;
+}
+
 .img {
     display: flex;
     align-items: center;
