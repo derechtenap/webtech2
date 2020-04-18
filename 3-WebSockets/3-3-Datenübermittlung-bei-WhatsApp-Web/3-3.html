@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.3* Aufgabe: Datenübermittlung bei WhatsApp Web</title>
+    <link rel="stylesheet" href="../../global/style.css">
+    <style>
+        /*  
+            CSS speziell für diese Aufgabe
+        */
+    </style>
+</head>
+
+<body>
+    <div class="container center">
+        <!-- Übersicht -->
+        <h1><small>3. WebSockets</small>3.3* Aufgabe: Datenübermittlung bei WhatsApp Web</h1>
+        <h2>Aufgabenstellung</h2>
+        <ol type="a">
+            <li>
+                Erstellen Sie, falls Sie einen WhatsApp-Account haben, eine mit dem Chrome-Browser WebSocket-Verbindung
+                über <code>http://web.whatsapp.com</code>. Analysieren Sie dabei mit den Entwickler-Tools des Browsers
+                unter "Netzwerk" und "WS" die übermittelten Daten!
+            </li>
+        </ol>
+
+        <hr>
+        <!-- Lösung -->
+        <h3>Lösung</h3>
+        <p>
+            WhatsApp übermittelt Daten als verschüsselte Binary Message. Die Nachricht wird mit einer ID verschickt (ein
+            Haken). Sollten alle Geräte ein Acknowlege zurück gesendet haben (doppelte Haken):
+        </p>
+        <pre class="text-code">
+            s15,["MsgInfo", {cmd: "ack", id: "-- MESSAGE ID --", ack: 2, from: "-- USER ID -- @c.us",…}]
+                0: "MsgInfo"
+                1: {cmd: "ack", id: "-- MESSAGE ID --", ack: 2, from: "-- USER ID -- @c.us",…}
+                    cmd: "ack"
+                    id: "-- MESSAGE ID --"
+                    ack: 2
+                    from: "-- USER ID -- @c.us"
+                    to: "-- EMPFÄNGER ID -- @g.us"
+                    t: 1587204186
+                    participant: "-- WEITERE TEILNEHMER (GRUPPE) -- @c.us"
+        </pre>
+        <p>
+            Fotos, Gruppen und Bilder werden ebenfalls abgefragt und dann in der linken Leiste angezeigt.
+        </p>
+        <pre class="text-code">
+            159.--29,{id: "-- GRUPPEN ID -- @g.us", owner: "-- BESITZER ID -- @c.us", subject: "-- GRUPPEN TITEL --",…}
+                id: "-- GRUPPEN ID -- @g.us"
+                owner: "-- BESITZER ID -- @c.us"
+                subject: "-- GRUPPEN TITEL -- "
+                creation: 1579774234
+                participants: [{id: "--TEILNEHMER ID -- @c.us", isAdmin: false, isSuperAdmin: false},…]
+                subjectTime: 1579774234
+                subjectOwner: "-- ERSTELLER DES GRUPPEN TITELS -- @c.us"
+                desc: "-- BESCHREIBUNG --"
+                descId: "-- BESCHREIBUNG ID --"
+                descTime: 1579774901
+                descOwner: "-- ERSTELLER DER BESCHREIBUNG -- @c.us"
+        </pre>
+        <p>Laden eines Avatars:</p>
+        <pre class="text-code">
+            59.--8,{,…}
+                eurl: "-- URL --"
+                tag: "NUTZER ID"
+        </pre>
+        <p>
+            Beim starten der App werden auch Informationen über Blocklisten (mit Nutzer-IDs) übermittelt. In
+            regelmäßigen Abständen wird das benutzte Geräte (Smartphone) überprüft und Gerätetyp, OS-Version und
+            WhatsApp Version übermittelt.
+        </p>
+    </div>
+</body>
+
+</html>

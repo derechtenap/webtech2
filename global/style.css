@@ -22,7 +22,7 @@ hr {
     border-bottom: 1px solid #000000;
 }
 
-code {
+code, .text-code {
     font-family: monospace;
     color: #eb3b5a;
 }
@@ -30,6 +30,10 @@ code {
 ol {
     padding-inline-start: 0;
     margin-inline-start: 1em;
+}
+
+ol > li {
+    text-align: justify;
 }
 
 .img {
