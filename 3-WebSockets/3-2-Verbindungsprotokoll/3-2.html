@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3.1 Aufgabe: WebSocket-Client</title>
+    <title>3.2 Aufgabe: Verbindungsprotokoll</title>
     <link rel="stylesheet" href="../../global/style.css">
     <style>
         /*  
@@ -44,9 +44,8 @@
     <script>
         var onload = function () {
             var terminal = document.getElementById('terminal');
-            var verbindung = new WebSocket('ws://194.94.2.20:8087/chat');
+            var verbindung = new WebSocket('ws://194.94.2.20:8087/eliza');
             var statusElement = document.getElementById('status');
-            var username = 'username=null';
 
             // Event handlers
             verbindung.onopen = function () {
@@ -76,15 +75,11 @@
             document.getElementById('input').onkeydown = function (event) {
                 if (event.keyCode === 13) { // 13 = Enter
                     var msg = document.getElementById('input').value;
-                    if (username === 'username=null') {
-                        verbindung.send(msg) = username;
-                    } else {
-                        if (msg) { // Keine leere Nachricht
-                            verbindung.send(msg);
-                            document.getElementById('input').value = '';
-                            terminal.innerHTML += username + msg + '\n';
-                            terminal.scrollTop = terminal.scrollHeight;
-                        }
+                    if (msg) { // Keine leere Nachricht
+                        verbindung.send(msg);
+                        document.getElementById('input').value = '';
+                        terminal.innerHTML += 'DU: ' + msg + '\n';
+                        terminal.scrollTop = terminal.scrollHeight;
                     }
                 }
                 statusElement.innerHTML = verbindung.readyState;
@@ -96,14 +91,13 @@
 <body>
     <div class="container center">
         <!-- Übersicht -->
-        <h1><small>3. WebSockets</small>3.1 Aufgabe: WebSocket-Client</h1>
+        <h1><small>3. WebSockets</small>3.2 Aufgabe: Verbindungsprotokoll</h1>
         <h2>Aufgabenstellung</h2>
         <ol type="a">
             <li>
-                Programmieren Sie einen WebSocket-Client für den Chatserver mit der WebSocketverbindung
-                <code>ws://194.94.2.20:8087/chat</code>. Das "Protokoll" des Chatdienstes sieht dabei vor, dass die
-                erste Eingabe ein frei wählbarer Username ist, mit der sich ein Teilnehmer anmeldet, und dass er sich
-                mit der Eingabe "bye" oder durch Klicken eines geeigneten Buttons wieder abmeldet.
+                Unter der WebSocket-Verbindung <code>ws://194.94.2.20:8087/eliza</code> läuft der Server <i>Eliza</i>.
+                Versuchen Sie, das "Protokoll" des Servers mit Hilfe eines geeigneten WebSocket-Clients herauszufinden.
+                Eliza wird Ihnen die notwendigen Hinweise dazu geben.
             </li>
         </ol>
 
@@ -113,7 +107,7 @@
 
         <fieldset>
             <textarea id="terminal" cols="80" rows="10" readonly placeholder="Chat"></textarea>
-            <input type="text" id="input" size="80" placeholder="Ihre erste Nachricht entspricht ihrem Benutzernamen -- Nachricht eingeben; Mit 'bye' Verbindung beenden.">
+            <input type="text" id="input" size="80" placeholder="Nachricht eingeben; Mit 'bye' Verbindung beenden.">
             <div>
                 Verbindung: <var id="status">-1</var>
 
