@@ -46,7 +46,7 @@
             var terminal = document.getElementById('terminal');
             var verbindung = new WebSocket('ws://194.94.2.20:8087/chat');
             var statusElement = document.getElementById('status');
-            var username = 'username=null';
+            var username = '';
 
             // Event handlers
             verbindung.onopen = function () {
@@ -76,19 +76,18 @@
             document.getElementById('input').onkeydown = function (event) {
                 if (event.keyCode === 13) { // 13 = Enter
                     var msg = document.getElementById('input').value;
-                    if (username === 'username=null') {
-                        verbindung.send(msg) = username;
-                    } else {
-                        if (msg) { // Keine leere Nachricht
-                            verbindung.send(msg);
-                            document.getElementById('input').value = '';
-                            terminal.innerHTML += username + msg + '\n';
-                            terminal.scrollTop = terminal.scrollHeight;
-                        }
+                    if (msg) { // Keine leere Nachricht
+                        verbindung.send(msg);
+                        document.getElementById('input').value = '';
+                        terminal.innerHTML += username + msg + '\n';
+                        terminal.scrollTop = terminal.scrollHeight;
+                    }
+                    if (username === '') { // Setze Username
+                        username = msg + ': ';
                     }
                 }
-                statusElement.innerHTML = verbindung.readyState;
-            };
+            }
+            statusElement.innerHTML = verbindung.readyState;
         };
     </script>
 </head>
@@ -113,7 +112,8 @@
 
         <fieldset>
             <textarea id="terminal" cols="80" rows="10" readonly placeholder="Chat"></textarea>
-            <input type="text" id="input" size="80" placeholder="Ihre erste Nachricht entspricht ihrem Benutzernamen -- Nachricht eingeben; Mit 'bye' Verbindung beenden.">
+            <input type="text" id="input" size="80"
+                placeholder="Ihre erste Nachricht entspricht ihrem Benutzernamen -- Nachricht eingeben; Mit 'bye' Verbindung beenden.">
             <div>
                 Verbindung: <var id="status">-1</var>
 
