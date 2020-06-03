@@ -7,7 +7,7 @@
     <title>1.4* Aufgabe: AJAX mit jQuery</title>
     <link rel="stylesheet" href="../../global/style.css">
     <style>
-        header,
+        header#famous,
         nav,
         section,
         article,
@@ -30,35 +30,14 @@
 </head>
 
 <body>
-    <div class="container center">
-        <!-- Übersicht -->
-        <h1><small>1. jQuery</small>1.4* Aufgabe: AJAX mit jQuery</h1>
-        <h2>Aufgabenstellung</h2>
-        <p>
-            (Vgl. Aufgabe 15.2 aus dem letzten Semester.) In dem Verzeichnis
-            <code>http://haegar.fh-swf.de/Webtechnologie/Aufgaben/Woche_1-15/</code> befinden sich der Quelltext
-            einer HTML-Seite und mehrere JSON-Dateien mit Informationen zu verschiedenen Städten. Die HTML-Seite
-            liefert das Gerüst, mit dem die Städteinformationen HTML5-konform angezeigt werden sollen.
-            (Insbesondere
-            sollte sie auch auf mobilen Endgeräten ansprechend dargestellt werden, testen Sie es!)
-        </p>
-        <p>
-            Laden Sie die Dateien in ein Unterverzeichnis Ihres Webservers und erweitern Sie den Quelltext der
-            HTML-Datei um jQuery-Anweisungen, so dass beim Anklicken der Buttons die jeweilige JSON-Datei
-            geladen wird und deren Informationen in den Elementen <code>titel</code> und <code>inhalt</code>
-            angezeigt werden. Zum Beispiel soll nach dem Laden der Datei <code>Istanbul.json</code> mit den
-            Daten der folgende Text erscheinen: Istanbul is a city in Turkey with a metropolitan area of 14
-            million residents. Istanbul is the most populous city of Turkey and of Europe.
-        </p>
-        <p>
-            Beachten Sie, dass standardmäßig jQuery als empfangenen Datentyp per <i>"Intelligent Guess"</i> in
-            JavaScript umformt.
-        </p>
-        <hr>
-        <!-- Lösung -->
-        <h3>Lösung</h3>
-
+    <main>
         <header>
+            <h1>jQuery - 1.4* Aufgabe: AJAX mit jQuery</h1>
+            <h2>Lösung</h2>
+            <p>Für die Aufgabenstellung siehe <a href="../1-Aufgabenblatt.md">1-Aufgabenblatt.md</a>.</p>
+        </header>
+
+        <header id="famous">
             <h1>Famous Cities</h1>
         </header>
         <nav>
@@ -84,7 +63,7 @@
         <footer>
             <p>&copy; 2016 FH Südwestfalen.</p>
         </footer>
-    </div>
+    </main>
     <!-- jQuery -->
     <script src="http://code.jquery.com/jquery-1.12.4.min.js" defer></script>
     <script src="1-4-script.js" defer></script>
